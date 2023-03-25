@@ -76,36 +76,6 @@ public class RegistrationPage {
         WebElement errorMessage = driver.findElement(By.xpath("//*[@id='signupForm']/fieldset[1]/label[5]"));
         Assertions.assertEquals("This field is required", errorMessage.getText());
 
-
-//       assertTrue(driver.getPageSource().contains("Your order has been placed!"));
-//       public void validateAttributeValueInElement(WebElement element, String att, String expectedValue){
-//           String actualValue = element.getAttribute(att);
-//           Assert.assertTrue(actualValue.contains(expectedValue));
-//       WebElement tickbox = driver.findElement(By.xpath("//input[@name='map(terms)']"));
-//      Select termsAndConditionsSelect = new Select(tickbox);
-//        if(!tickbox.isSelected()){
-//            tickbox.click();
-//        } else{
-//            System.out.println(" Terms and Conditions button is already selected");
-//        }
-//       assertTrue(tickbox.isSelected());
-
-//       WebElement daySelect = driver.findElement(By.id("dobDay"));
-//       Select dayDropDown = new Select(daySelect);
-//       dayDropDown.selectByValue("19");
-//       WebElement monthSelect = driver.findElement(By.id("dobMonth"));
-//       Select monthDropDown = new Select (monthSelect);
-//      monthDropDown.selectByValue("03");
-//       WebElement yearSelect = driver.findElement(By.id("dobYear"));
-//       Select yearDropDown = new Select(yearSelect);
-//       yearDropDown.selectByValue("1978");
-//       driver.findElement(By.name("map(email)"));
-//       String prefix = RandomStringUtils.randomAlphabetic(7);
-//       String domainPrefix = RandomStringUtils.randomAlphabetic(5);
-//       String mainDomain = RandomStringUtils.randomAlphabetic(3);
-//       String emailAddress = prefix + "@" + domainPrefix + "." + mainDomain;
-//       driver.findElement(By.name("map(email)")).sendKeys(emailAddress);
-
     }
 }
 
