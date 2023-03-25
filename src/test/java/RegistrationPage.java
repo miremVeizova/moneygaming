@@ -40,6 +40,7 @@ public class RegistrationPage {
 
 
         driver.get("https://moneygaming.qa.gameaccount.com/");
+
         // wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //       WebElement loginHeading = driver.findElement(By.xpath("/html/head"));
 //       wait.until(ExpectedConditions.visibilityOf(loginHeading));
