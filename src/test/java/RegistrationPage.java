@@ -1,5 +1,6 @@
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.engine.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,16 +9,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RegistrationPage {
 
-
-    public String loginButton = "//*[@class='login_links']//*[@class='newUser green']";
-
     private WebDriver driver;
-    WebDriverWait wait;
+
 
     @BeforeEach
     public void beforeEachTest() {
@@ -25,6 +24,7 @@ public class RegistrationPage {
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
     }
 
@@ -38,28 +38,15 @@ public class RegistrationPage {
     @DisplayName("Register a new user")
     public void registerANewUser() {
 
+//      Navigate to the login page
+       driver.get("https://moneygaming.qa.gameaccount.com/");
 
-        driver.get("https://moneygaming.qa.gameaccount.com/");
-
-        // wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//       WebElement loginHeading = driver.findElement(By.xpath("/html/head"));
-//       wait.until(ExpectedConditions.visibilityOf(loginHeading));
-
-
-//        var loginButton = "//*[@class='login_links']//*[@class='newUser green']";
-//       //Check that the navigation was successful
-//       WebElement loginHeading = driver.findElement(By.xpath("//*[@class='header']//*[@title='MoneyGaming']"));
-//       Assertions.assertEquals("MoneyGaming", loginHeading.getText());
-
-
-        //Click the JOIN NOW button to open the registration page
-        WebElement joinNow = driver.findElement(By.xpath(loginButton));
+//      Click the JOIN NOW button to open the registration page
+        WebElement joinNow = driver.findElement(By.xpath("//*[@class='login_links']//*[@class='newUser green']"));
         joinNow.click();
-
 
         WebElement titleField = driver.findElement(By.id("title"));
         titleField.click();
-
 //       Select a title value from the dropdown
         WebElement titleSelect = driver.findElement(By.name("map(title)"));
         Select titleDropDown = new Select(titleSelect);
@@ -69,9 +56,9 @@ public class RegistrationPage {
         WebElement firstname = driver.findElement(By.id("forename"));
         firstname.sendKeys("TestMiyrem");
 
-//       Enter your last name
-        WebElement lastname = driver.findElement(By.name("map(lastName)"));
-        lastname.sendKeys("TestVeizova");
+//       Enter your surname
+        WebElement surname = driver.findElement(By.name("map(lastName)"));
+        surname.sendKeys("TestVeizova");
 
 //       Check the tickbox with text 'I accept the Terms and Conditions and certify that I am over the age of 18.'
         WebElement tickbox = driver.findElement(By.xpath("//input[@name='map(terms)']"));
